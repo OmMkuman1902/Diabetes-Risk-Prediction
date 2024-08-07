@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Classification</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            background-image: url("{{url_for('static',filename='builtin/796225_16040-NQG8CW.jpg.')}}");
+
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-size: cover;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .container {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            max-width: 500px;
+            width: 100%;
+            text-align: center;
+        }
+        h1 {
+            margin-bottom: 20px;
+            color: #333;
+            font-family:Arial, Helvetica, sans-serif
+
+        }
+        .file-input-container {
+            position: relative;
+            margin: 20px 0;
+        }
+        .file-input {
+            position: absolute;
+            left: 0;
+            top: 0;
+            opacity: 0;
+            width: 100%;
+            height: 100%;
+            cursor: pointer;
+            
+        }
+        .file-input-label {
+            display: inline-block;
+            padding: 10px 20px;
+            border-radius: 4px;
+            background-color: #007bff;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        .file-input-label:hover {
+            background-color: #0056b3;
+        }
+        .checkbox-group {
+            text-align: left;
+            margin-bottom: 20px;
+        }
+        .checkbox-group label {
+            display: block;
+            margin-bottom: 10px;
+            font-size: 14px;
+        }
+        .checkbox-group input {
+            margin-right: 10px;
+        }
+        .text-box {
+            margin-bottom: 20px;
+        }
+        .text-box input {
+            width: calc(100% - 22px);
+            padding: 10px;
+            margin-top: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 14px;
+        }
+        .submit-button {
+            display: block;
+            width: 100%;
+            padding: 10px 20px;
+            background-color: #8dc63f;
+            color: #0d0d0d;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        .submit-button:hover {
+            background-color: #76c76b;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Classification</h1>
+        <form action="/classification" method="post" enctype="multipart/form-data">
+            <div class="file-input-container">
+                <label for="file-input" class="file-input-label">Choose File</label>
+                <input type="file" id="file-input" name="file" accept=".xlsx, .xls" class="file-input">
+            </div>
+            <div class="text-box">
+                <label for="output-variable"><b>Output Variable</b></label>
+                <input type="text" id="outputcol" name="outputcol" placeholder="Enter output variable">
+            </div>
+            <div class="text-box">
+                <label for="output-variable"><b>Standard Scaling</b></label>
+                <input type="text" id="standarscale" name="standarscale" placeholder="Does it require Standard Scaling?">
+            </div>
+            <div class="text-box">
+                <label for="output-variable"><b>Encoding</b></label>
+                <input type="text" id="strcol" name="strcol" placeholder="Does column contain string value?">
+            </div>
+            <div class="checkbox-group">
+                <label><input type="checkbox" name="options[]" value="LogisticRegression()"> Logistic Regression</label>
+                <label><input type="checkbox" name="options[]" value="RandomForestClassifier()"> Random Forest Classifier </label>
+                <label><input type="checkbox" name="options[]" value="DecisionTreeClassifier()"> Decision Tree Classifier </label>
+                <label><input type="checkbox" name="options[]" value="GradientBoostingClassifier()"> Gradient Boosting Classifier </label>
+                <label><input type="checkbox" name="options[]" value="AdaBoostClassifier()"> AdaBoost Classifier </label>
+                <label><input type="checkbox" name="options[]" value="KNeighborsClassifier()"> KNearest Neighbors Classifier </label>
+                <label><input type="checkbox" name="options[]" value="svm()"> Support Vector Machine </label>
+            </div>
+            <button type="submit" class="submit-button"><b>Submit</b></button>
+        </form>
+    </div>
+</body>
+</html>

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome - Choose Your ML Type</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            background-image: url("{{url_for('static',filename='builtin/77927720_SL-042820-30440-16.jpg')}}");
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-size: cover;
+
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .container {
+            background-color: #ebe8e8;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+            font-family:Arial, Helvetica, sans-serif
+        }
+        .checkbox-container {
+            margin-bottom: 30px;
+        }
+        .checkbox-container label {
+            display: block;
+            margin-bottom: 10px;
+        }
+        .checkbox-container input[type="checkbox"] {
+            margin-right: 10px;
+        }
+        .submit-btn {
+            display: block;
+            width: 100%;
+            padding: 10px 20px;
+            background-color: #8dc63f;
+            color: #1b1818;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        .submit-btn:hover {
+            background-color: #72a534;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Welcome - Choose Your ML Type</h1>
+        <form action="/inputs" method="post">
+            <div class="checkbox-container">
+                <label><input type="radio" id="choice1" name="choice[]" value="Classification"> Classification</label>
+                <label><input type="radio" id="choice2" name ="choice[]" value="Regression"> Regression</label>
+            </div>
+            <button type="submit" class="submit-btn"><b>Submit</b></button>
+        </form>
+    </div>
+</body>
+</html>
